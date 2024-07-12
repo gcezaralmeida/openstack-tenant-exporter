@@ -4,6 +4,9 @@ This chart installs the OpenStack Tenant Exporter, a Prometheus exporter that co
 
 ## Requirements
 
+- [Kube Prometheus Stack](https://github.com/prometheus-operator/kube-prometheus)
+- Cloud Config Secret (below)
+
 The Helm Charts needs a secret cloud-config. In case you don't have it. You can create as the example below or pass in values.yaml file. To use the Helm Chart to create it. Enable first secret.create=true and fill secret.cloudConfig with your own info
 
 ``` yaml
