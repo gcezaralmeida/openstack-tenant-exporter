@@ -1,12 +1,11 @@
 # OpenStack Tenant Exporter
 
-## Build openstack-tenant-exporter
+This chart installs the OpenStack Tenant Exporter, a Prometheus exporter
+that collects metrics about OpenStack tenants.
+
+## Install Using Helm
 
 ``` bash
-export OTE_TAG=0.1.5
-docker build -t openstack-tenant-exporter:$OTE_TAG .
-docker tag openstack-tenant-exporter:$OTE_TAG brocolis/openstack-tenant-exporter:$OTE_TAG
-docker tag openstack-tenant-exporter:$OTE_TAG brocolis/openstack-tenant-exporter:latest
-docker push brocolis/openstack-tenant-exporter:$OTE_TAG
-docker push brocolis/openstack-tenant-exporter:latest
+helm upgrade --install openstack-tenant-exporter oci://registry-1.docker.io/brocolis/openstack-tenant-exporter -n kube-system
 ```
+

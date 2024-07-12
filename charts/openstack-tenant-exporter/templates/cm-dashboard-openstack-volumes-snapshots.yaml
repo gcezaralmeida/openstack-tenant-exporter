@@ -489,7 +489,8 @@ data:
                   "job": true,
                   "namespace": true,
                   "pod": true,
-                  "service": true
+                  "service": true,
+                  "tenant_id": false
                 },
                 "indexByName": {
                   "Time": 0,
@@ -520,9 +521,9 @@ data:
       },
       "timepicker": {},
       "timezone": "",
-      "title": "OpenStack Volume Snapshots",
+      "title": "OpenStack Volumes Snapshots",
       "uid": "g9Q9wBlSk",
-      "version": 1,
+      "version": 2,
       "weekStart": ""
     }
 {{- end }}
