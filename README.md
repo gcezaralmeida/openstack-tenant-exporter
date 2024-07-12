@@ -1,7 +1,32 @@
 # OpenStack Tenant Exporter
 
-This chart installs the OpenStack Tenant Exporter, a Prometheus exporter
-that collects metrics about OpenStack tenants.
+This chart installs the OpenStack Tenant Exporter, a Prometheus exporter that collects metrics about OpenStack tenants. This exporter uses the `gophercloud` library to interact with the OpenStack API.
+
+## Requirements
+
+The Helm Charts needs a secret cloud-config. In case you don't have it. You can create as the example below or pass in values.yaml file. To use the Helm Chart to create it. Enable first secret.create=true and fill secret.cloudConfig with your own info
+
+``` yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cloud-config
+  namespace: kube-system
+type: Opaque
+stringData:
+  clouds.yaml: |
+      clouds:
+        default:
+          region_name: regionOne
+          auth:
+            username: username
+            password: password
+            project_id: project_id
+            project_domain_name: 'default'
+            user_domain_name: 'default'
+            auth_url: 'https://<mycloud>:5000/v3'
+          verify: false
+```
 
 ## Install Using Helm
 
