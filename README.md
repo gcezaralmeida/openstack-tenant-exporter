@@ -3,7 +3,7 @@
 ## Build openstack-tenant-exporter
 
 ´´´ bash
-export OTE_TAG=0.1.2
+export OTE_TAG=0.1.5
 docker build -t openstack-tenant-exporter:$OTE_TAG .
 docker tag openstack-tenant-exporter:$OTE_TAG brocolis/openstack-tenant-exporter:$OTE_TAG
 docker tag openstack-tenant-exporter:$OTE_TAG brocolis/openstack-tenant-exporter:latest

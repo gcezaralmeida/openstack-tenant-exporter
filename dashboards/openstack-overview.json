@@ -21,7 +21,7 @@
       }
     ]
   },
-  "editable": true,
+  "editable": false,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": 40,
@@ -111,7 +111,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "openstack_max_total_instances",
+          "expr": "openstack_max_total_instances != -1",
           "hide": false,
           "legendFormat": "max_total_instances",
           "range": true,
@@ -191,7 +191,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "openstack_max_total_cores",
+          "expr": "openstack_max_total_cores != -1",
           "hide": false,
           "legendFormat": "max_total_cores",
           "range": true,
@@ -272,7 +272,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "openstack_max_total_ram",
+          "expr": "openstack_max_total_ram != -1",
           "hide": false,
           "legendFormat": "max_total_ram",
           "range": true,
@@ -366,7 +366,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "openstack_max_total_volumes",
+          "expr": "openstack_max_total_volumes != -1",
           "hide": false,
           "legendFormat": "max_total_volumes",
           "range": true,
@@ -447,14 +447,14 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "openstack_max_total_snapshots",
+          "expr": "openstack_max_total_snapshots != -1",
           "hide": false,
           "legendFormat": "max_total_snapshots",
           "range": true,
           "refId": "B"
         }
       ],
-      "title": "Volumes",
+      "title": "Snapshots",
       "type": "piechart"
     },
     {
@@ -528,7 +528,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "openstack_max_total_volume_gigabytes",
+          "expr": "openstack_max_total_volume_gigabytes != -1",
           "hide": false,
           "legendFormat": "max_total_volume_gigabytes",
           "range": true,
@@ -536,6 +536,181 @@
         }
       ],
       "title": "Volumes Storage",
+      "type": "piechart"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 20
+      },
+      "id": 15,
+      "panels": [],
+      "title": "Network",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [],
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 21
+      },
+      "id": 12,
+      "options": {
+        "displayLabels": [
+          "value"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.1.5",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "openstack_total_floatingips_used",
+          "legendFormat": "total_floatingips_used",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "openstack_max_floatingips != -1",
+          "hide": false,
+          "legendFormat": "max_floatingips",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Floating IPs",
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [],
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 8,
+        "y": 21
+      },
+      "id": 13,
+      "options": {
+        "displayLabels": [
+          "value"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.1.5",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "openstack_total_loadbalancers_used",
+          "legendFormat": "total_loadbalancers_used",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "openstack_max_loadbalancers != -1",
+          "hide": false,
+          "legendFormat": "max_loadbalancers",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Load Balancers",
       "type": "piechart"
     }
   ],
@@ -554,6 +729,6 @@
   "timezone": "",
   "title": "OpenStack Overview",
   "uid": "Lo_xL5_Ik",
-  "version": 3,
+  "version": 5,
   "weekStart": ""
 }

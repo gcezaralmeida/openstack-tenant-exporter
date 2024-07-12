@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: brocolis/openstack-tenant-exporter
   pullPolicy: IfNotPresent
-  tag: "0.1.2"
+  tag: "0.1.5"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -42,6 +42,10 @@ serviceMonitor:
   enabled: true
   interval: 1m
   scrapeTimeout: 30s
+
+grafana:
+  dashboards:
+    enabled: true
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
