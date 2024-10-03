@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: brocolis/openstack-tenant-exporter
   pullPolicy: IfNotPresent
-  tag: "jammy-0.1.6"
+  tag: "jammy-0.1.7"
 
 imagePullSecrets: []
 nameOverride: ""

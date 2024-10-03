@@ -207,6 +207,7 @@ func(e *OpenStackExporter) collectStorageLimits() {
 	e.maxTotalSnapshots.WithLabelValues(e.tenantID).Set(float64(storageLimitsInfo.Absolute.MaxTotalSnapshots))
 	e.totalSnapshotsUsed.WithLabelValues(e.tenantID).Set(float64(storageLimitsInfo.Absolute.TotalSnapshotsUsed))
 	e.maxTotalVolumeGigabytes.WithLabelValues(e.tenantID).Set(float64(storageLimitsInfo.Absolute.MaxTotalVolumeGigabytes))
+	e.totalVolumeGigabytesUsed.WithLabelValues(e.tenantID).Set(float64(storageLimitsInfo.Absolute.TotalGigabytesUsed))
 }
 
 func(e *OpenStackExporter) collectLoadBalancerLimits() {
